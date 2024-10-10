@@ -10,7 +10,7 @@ Ability to route midi from selected MIDI Input device to selected MIDI Output de
 ## Download
 You can download latest MIDI Router Windows executable here:
 
-[![Release](https://img.shields.io/badge/Download-blue?style=flat-square)](https://serifpersia.github.io/fast-midi-router-win/)
+[![Release](https://img.shields.io/badge/Download-blue?style=flat-square)](https://github.com/serifpersia/fast-midi-router-win/releases)
 
 ## Build
 WINDOWS ONLY! To build MIDI Router executable you need CMake and MSYS2 MINGW64 installed(MINGW64 Compiler path `msys64\ucrt64\bin` added in System PATH)
