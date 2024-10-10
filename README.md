@@ -14,3 +14,7 @@ You can download latest MIDI Router Windows executable here:
 
 ## Build
 WINDOWS ONLY! To build MIDI Router executable you need CMake and MSYS2 MINGW64 installed(MINGW64 Compiler path `msys64\ucrt64\bin` added in System PATH)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
