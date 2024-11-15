@@ -1,6 +1,6 @@
 # midi-router-win
 
-MIDI Router is c++ windows utility.
+MIDI Router is c++ midi routing utility.
 
 Ability to route midi from selected MIDI Input device to selected MIDI Output device without any overhead.
 
@@ -14,6 +14,7 @@ You can download latest MIDI Router Windows executable here:
 
 ## Build
 WINDOWS ONLY! To build MIDI Router executable you need CMake and MSYS2 MINGW64 installed(MINGW64 Compiler path `msys64\ucrt64\bin` added in System PATH)
+build.sh can be ran on UNIX (Linux, macOS) * Not tested, any issues or PRs are welcome for it
 
 ## License
 
