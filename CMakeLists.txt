@@ -19,15 +19,15 @@ if(WIN32)
     add_definitions(-D__WINDOWS_MM__)
     set(MIDI_LIBS winmm)
     
-    # MinGW-specific settings
+    # MinGW-specific settings for static linking
     if(MINGW)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -static-libgcc -static-libstdc++")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static -static-libgcc -static-libstdc++ -static-libgfortran -Wl,-Bstatic -lpthread -Wl,-Bdynamic")
+        set(MIDI_LIBS ${MIDI_LIBS} -lws2_32 -lstdc++ -lgcc -lpthread)
     endif()
 elseif(APPLE)
     add_definitions(-D__MACOSX_CORE__)
     set(MIDI_LIBS "-framework CoreMIDI" "-framework CoreAudio" "-framework CoreFoundation")
-elseif(UNIX)
+elif(UNIX)
     find_package(ALSA QUIET)
     if(ALSA_FOUND)
         add_definitions(-D__LINUX_ALSA__)
@@ -36,6 +36,9 @@ elseif(UNIX)
         add_definitions(-D__UNIX_JACK__)
         set(MIDI_LIBS jack pthread)
     endif()
+    
+    # Force static linking on Linux
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
 endif()
 
 # Add RtMidi library
